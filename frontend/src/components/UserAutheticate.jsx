@@ -1,5 +1,3 @@
-// Authentication.js
-
 import React, { useContext } from "react";
 import LoginForm from "../pages/Login";
 import SignUpForm from "../pages/SignUp";
@@ -9,21 +7,25 @@ const Authentication = () => {
   const { swap } = useContext(AuthContext);
 
   return (
-    <div className="relative flex flex-col md:flex-row min-h-screen">
-      <div className="md:w-1/2 overflow-hidden relative">
+    <div className="relative flex items-center justify-center h-screen overflow-hidden">
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0">
         <img
-          src="https://images.unsplash.com/photo-1526243741027-444d633d7365?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-          alt="books"
+          src="https://www.hdwallpaper.nu/wp-content/uploads/2015/09/7efae7f6dce13596b70641cc2b274431.jpg"
+          alt="Beach background"
           className="w-full h-full object-cover"
         />
-        <p className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-70 text-white p-4 text-center z-10 md:text-lg lg:text-xl xl:text-2xl">
-          Exploring the Books Managemanet
-        </p>
       </div>
-      <div className="md:w-1/2 flex items-center justify-center p-8">
-        
-        <div className="max-w-md w-full">
-          {swap ? <SignUpForm /> : <LoginForm />}
+
+      {/* Transparent Overlay */}
+      <div className="absolute inset-0 bg-black opacity-50 z-1"></div>
+
+      {/* Login or SignUp Form */}
+      <div className="relative z-2">
+        <div className="bg-transparent flex items-center justify-center w-80">
+          <div className="max-w-md w-full">
+            {swap ? <SignUpForm /> : <LoginForm />}
+          </div>
         </div>
       </div>
     </div>
